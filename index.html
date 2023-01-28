@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyJam</title>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+    integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+    crossorigin=""/>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <header>
+        <h1>SkyJam</h1>
+    </header>
+    <main>
+    <section id="preference">
+        <div id="preference-bar"></div>
+            <h2>Preferences</h2>
+            <button>Light-Mode</button>
+            <button>Dark-Mode</button>
+            <button>Genre</button>
+    </section>
+    <section id="current-msc">
+        <h2>How it Works:</h2>
+        <h2>Click on the map once to start your search.</h2>
+        <h3>Afterwards you can click a location to get real time weather data and a music playlist to fit the weather mood.</h3>
+
+        <div id="now-playing"></div>
+        
+    </section>
+    <section id="weather">
+        <h2>Weather Data</h2>
+        <h3>Click once to initialize the map!</h3>
+        <div id="map"></div>
+    </section>
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+    integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+    crossorigin=""></script>  
+    <script src="script.js"></script> 
+</main>
+<footer></footer>
+
+</body>
+</html>
