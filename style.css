@@ -122,3 +122,14 @@ header h1{
     text-align: center;
 
 }
+
+#now-playing {
+    display: flex;
+    justify-content: center;
+    margin-top: 2vh;
+}
+
+#now-playing iframe {
+    height: 500px;
+    width: 700px;
+}
