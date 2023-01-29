@@ -1,3 +1,4 @@
+// loads the Leaflet map API to the DOM
 var osm = L.tileLayer("https://tile.openstreetmap.org/10/40.75/-111.png", {
   maxZoom: 19,
   attribution: "© OpenStreetMap",
@@ -5,10 +6,12 @@ var osm = L.tileLayer("https://tile.openstreetmap.org/10/40.75/-111.png", {
 
 var map = L.map("map").setView([40.75, -111], 7);
 
+//declares the initial map
 var baseMaps = {
   OpenStreetMap: osm,
 };
 
+//pulls the current weather data and converts it into map layers
 var clouds = L.tileLayer(
   "https://tile.openweathermap.org/map/clouds_new/{z}/{x}/{y}.png?appid=4fd6f21c09387bdd2ef7e9728c3da374",
   {
@@ -29,29 +32,37 @@ var wind = L.tileLayer(
   { id: "openWeatherMap-v1", ocacity: 0.8, attribution: "OpenWeatherMap" }
 );
 
+// defines the options available for different layers of the map
 var overlayMaps = {
   Clouds: clouds,
   Precipitation: precipitation,
   Temperature: temp,
   Wind: wind,
 };
+//allows the user to control the latey displayed on the weather map
+var layerControl = L.control.layers(overlayMaps).addTo(map);
 
-var layerControl = L.control.layers(baseMaps, overlayMaps).addTo(map);
-
+// dipslays the base layer of the weather map
 L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
   maxZoom: 19,
   attribution:
     '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
 }).addTo(map);
 
+// the popup for the weather icon to be defined later
 var popup = L.popup();
+//openWeatherMap API key
 var APIKey = "4fd6f21c09387bdd2ef7e9728c3da374";
+//variable that is later defined as the proper youtube playlist to display
 var currentWeather;
 
+//executes when the map is clicked on
 function onMapClick(e) {
+  //gets the lat and lon based on where the user clicked
   var lat = e.latlng.lat.toString().slice(0, 5);
   var lon = e.latlng.lng.toString().slice(0, 5);
 
+  //calls the openweathermap api and takes the lat and lon variable gained from the map click
   var queryURL =
     "https://api.openweathermap.org/data/2.5/weather?lat=" +
     lat +
@@ -65,8 +76,9 @@ function onMapClick(e) {
     .then((data) => generateIcon(data));
 
   function generateIcon(data) {
+    //pulls current weather data
     var playlistID = data.weather[0].icon;
-
+    //generates the correct playlist on current weather information
     if (playlistID == "01d" || playlistID == "01n") {
       //clear skies - reggae
       currentWeather =
@@ -104,20 +116,29 @@ function onMapClick(e) {
       currentWeather =
         "https://youtube.googleapis.com/youtube/v3/playlists?part=contentDetails&id=PL0IEgTCG6xMxD4BoloaI5tTquupJzdu2a&maxResults=2&contentDetails&key=AIzaSyAWjdHyeEO6RozX9uMc1GnPAafHJiVIpCk";
     } else {
-      currentWeather = "";
+     
     }
+    // displays the weather Icon based on the location
     var img = document.createElement("img");
     img.src =
       "https://openweathermap.org/img/wn/" + data.weather[0].icon + "@2x.png";
     popup.setLatLng(e.latlng).setContent(img).openOn(map);
   }
+
+
+  //executes the remove funciton, appears first so it will clear the DOM before appending a new element 
   remove();
-  fetchPlaylist(currentWeather);
+
+  //makes this function wait .5 seconds before executing so the request for the current playlist can load properly
+  setTimeout(() => {  
+    fetchPlaylist(currentWeather);}, 500)
   return;
 }
 
 //end of map/weather data
 
+
+//removes the previous Playlist from the DOM
 function remove() {
   if ((document.getElementById("now-playing").innerHTML = "")) {
     return;
@@ -126,7 +147,8 @@ function remove() {
   }
 }
 
-async function fetchPlaylist(url) {
+//Fetches playlist from the youtube API
+function fetchPlaylist(url) {
   fetch(url)
     .then(function (response) {
       return response.json();
@@ -143,6 +165,4 @@ async function fetchPlaylist(url) {
     });
   return;
 }
-
 map.on("click", onMapClick);
-//comment out what does what
