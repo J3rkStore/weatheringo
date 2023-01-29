@@ -100,23 +100,22 @@ function onMapClick(e) {
       currentWeather =
         "https://youtube.googleapis.com/youtube/v3/playlists?part=contentDetails&id=PL6F97C596DB1CF200&maxResults=2&contentDetails&key=AIzaSyAWjdHyeEO6RozX9uMc1GnPAafHJiVIpCk";
     } else if (playlistID == "10d" || playlistID == "10n") {
-      // rain - trip hop
+      // rain - trip hop.  RN it's 70s japanese jazz though because that's what I could get to work
       currentWeather =
-        "https://youtube.googleapis.com/youtube/v3/playlists?part=contentDetails&id=PLcM4ZwI542Co146AHagFZuYMnw437loMq&contentDetails&key=AIzaSyAWjdHyeEO6RozX9uMc1GnPAafHJiVIpCk";
+        "https://youtube.googleapis.com/youtube/v3/playlists?part=contentDetails&id=PLfhJP2GIcJCvJdqRmuFxffA84dYlC651J&contentDetails&key=AIzaSyAWjdHyeEO6RozX9uMc1GnPAafHJiVIpCk";
     } else if (playlistID == "11d" || playlistID == "11n") {
-      // thunderstorm - funeral doom
+      // thunderstorm -  blackened grindcore PLPVY23FuV_VN0NrKZHziMbkUS7nliGF4I
       currentWeather =
-        "https://youtube.googleapis.com/youtube/v3/playlists?part=contentDetails&id=PL-K_YiMt4bvwM57GL5DmHRf0RgiNVEXge&maxResults=2&contentDetails&key=AIzaSyAWjdHyeEO6RozX9uMc1GnPAafHJiVIpCk";
+        "https://youtube.googleapis.com/youtube/v3/playlists?part=contentDetails&id=PLPVY23FuV_VN0NrKZHziMbkUS7nliGF4I&maxResults=2&contentDetails&key=AIzaSyAWjdHyeEO6RozX9uMc1GnPAafHJiVIpCk";
     } else if (playlistID == "13d" || playlistID == "13n") {
-      //snow - black metal
+      //snow - funeral doom PL-K_YiMt4bvwM57GL5DmHRf0RgiNVEXge
       currentWeather =
-        "https://youtube.googleapis.com/youtube/v3/playlists?part=contentDetails&id=PLPVY23FuV_VN0NrKZHziMbkUS7nliGF4I&contentDetails&key=AIzaSyAWjdHyeEO6RozX9uMc1GnPAafHJiVIpCk";
+        "https://youtube.googleapis.com/youtube/v3/playlists?part=contentDetails&id=PL-K_YiMt4bvwM57GL5DmHRf0RgiNVEXge&contentDetails&key=AIzaSyAWjdHyeEO6RozX9uMc1GnPAafHJiVIpCk";
     } else if (playlistID == "50d" || playlistID == "50n") {
       //mist - drone
       currentWeather =
         "https://youtube.googleapis.com/youtube/v3/playlists?part=contentDetails&id=PL0IEgTCG6xMxD4BoloaI5tTquupJzdu2a&maxResults=2&contentDetails&key=AIzaSyAWjdHyeEO6RozX9uMc1GnPAafHJiVIpCk";
     } else {
-     
     }
     // displays the weather Icon based on the location
     var img = document.createElement("img");
@@ -125,18 +124,17 @@ function onMapClick(e) {
     popup.setLatLng(e.latlng).setContent(img).openOn(map);
   }
 
-
-  //executes the remove funciton, appears first so it will clear the DOM before appending a new element 
+  //executes the remove funciton, appears first so it will clear the DOM before appending a new element
   remove();
 
   //makes this function wait .5 seconds before executing so the request for the current playlist can load properly
-  setTimeout(() => {  
-    fetchPlaylist(currentWeather);}, 500)
+  setTimeout(() => {
+    fetchPlaylist(currentWeather);
+  }, 500);
   return;
 }
 
 //end of map/weather data
-
 
 //removes the previous Playlist from the DOM
 function remove() {
