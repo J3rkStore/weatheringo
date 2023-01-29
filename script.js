@@ -70,7 +70,7 @@ function onMapClick(e) {
     if (playlistID == "01d" || playlistID == "01n") {
       //clear skies - reggae
       currentWeather =
-        "https://youtube.googleapis.com/youtube/v3/playlists?part=contentDetails&id=PLwY9l4M25GOJqIx-Dn-PmYs1KjPd80-1N&maxResults=2&contentDetails&key=AIzaSyAWjdHyeEO6RozX9uMc1GnPAafHJiVIpCk";
+        "https://youtube.googleapis.com/youtube/v3/playlists?part=contentDetails&id=PLp7pAH9am84O9Cd9VlW0W_qVVCL5PC3BI&contentDetails&key=AIzaSyAWjdHyeEO6RozX9uMc1GnPAafHJiVIpCk";
     } else if (playlistID == "02d" || playlistID == "02n") {
       //few clouds - space rock
       currentWeather =
@@ -90,7 +90,7 @@ function onMapClick(e) {
     } else if (playlistID == "10d" || playlistID == "10n") {
       // rain - trip hop
       currentWeather =
-        "https://youtube.googleapis.com/youtube/v3/playlists?part=contentDetails&id=PL2f0C_3XIUNGneS9-S8H3OXoQww7p9yfJ&maxResults=2&contentDetails&key=AIzaSyAWjdHyeEO6RozX9uMc1GnPAafHJiVIpCk";
+        "https://youtube.googleapis.com/youtube/v3/playlists?part=contentDetails&id=PLcM4ZwI542Co146AHagFZuYMnw437loMq&contentDetails&key=AIzaSyAWjdHyeEO6RozX9uMc1GnPAafHJiVIpCk";
     } else if (playlistID == "11d" || playlistID == "11n") {
       // thunderstorm - funeral doom
       currentWeather =
@@ -98,7 +98,7 @@ function onMapClick(e) {
     } else if (playlistID == "13d" || playlistID == "13n") {
       //snow - black metal
       currentWeather =
-        "https://youtube.googleapis.com/youtube/v3/playlists?part=contentDetails&id=PL6Bc_hMmGmZ1Vs1btJ_3DvvyYiMyLr_vQ&maxResults=2&contentDetails&key=AIzaSyAWjdHyeEO6RozX9uMc1GnPAafHJiVIpCk";
+        "https://youtube.googleapis.com/youtube/v3/playlists?part=contentDetails&id=PLPVY23FuV_VN0NrKZHziMbkUS7nliGF4I&contentDetails&key=AIzaSyAWjdHyeEO6RozX9uMc1GnPAafHJiVIpCk";
     } else if (playlistID == "50d" || playlistID == "50n") {
       //mist - drone
       currentWeather =
