@@ -42,7 +42,7 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
-
+// don't add anything above line 46 - map will not work. 
 var popup = L.popup();
 var APIKey = '4fd6f21c09387bdd2ef7e9728c3da374';
 var currentWeather;
