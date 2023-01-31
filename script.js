@@ -48,8 +48,7 @@ L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
   attribution:
     '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
 }).addTo(map);
-
-// the popup for the weather icon to be defined later
+// don't add anything above line 46 - map will not work. 
 var popup = L.popup();
 //openWeatherMap API key
 var APIKey = "4fd6f21c09387bdd2ef7e9728c3da374";
