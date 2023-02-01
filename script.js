@@ -163,3 +163,61 @@ function fetchPlaylist(url) {
   return;
 }
 map.on("click", onMapClick);
+
+
+// When I add the functions below, the map brakes. It breaks no mas 
+
+// Functions for dark/light modes below
+// Project already in dark mode, create light mode in html
+// add light mode bg colors to tailwind css
+
+
+// Icons
+var lightMode = document.querySelector(".day");
+var darkMode = document.querySelector(".night");
+
+// Theme Vars 
+var userTheme = localStorage.getItem("theme");
+var systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+// Map breaks when I use "function" below instead of const
+// Icon Toggling ---- might not need idk
+const iconToggle = () => {
+  dayIcon.classList.toggle("display-none");
+  nightIcon.classList.toggle("display-none");
+};
+
+// Initial Theme Check
+const themeCheck = () => {
+  if (userTheme === "dark" (!userTheme && systemTheme)) {
+    document.documentElement.classList.add("dark");
+    nightIcon.classList.add("display-none");
+    return;
+  }
+  dayIcon.classList.add("display-none");
+};
+
+// Manual Theme Switch 
+const themeSwitch = () => {
+  if (document.documentElement.classList.contains("dark")) {
+    document.documentElement.classList.remove("dark");
+    localStorage.setItem("theme", "light");
+    iconToggle();
+    return;
+  }
+  document.documentElement.classList.add("dark");
+  localStorage.setItem("theme", "dark");
+  iconToggle();
+};
+
+// Call theme switch by clicking the icons/images
+dayIcon.addEventListener("click", () => {
+  themeSwitch();
+});
+
+nightIcon.addEventListener("click", () => {
+  themeSwitch();
+});
+
+// Calls the theme check when page is loaded
+themeCheck();
