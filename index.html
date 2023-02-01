@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark"> <!--adding dark mode to html-->
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,9 +11,9 @@
     integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
     crossorigin=""/>
     <link href="/dist/output.css" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
 </head>
-<body>
+<body> <!--class="bg-white dark:bg-black">-->             <!-- Testing dark theme switcher here -->
     <header>
         <h1>SkyJam</h1>
     </header>
@@ -21,8 +21,13 @@
     <section id="preference">
         <div id="preference-bar"></div>
             <h2>Preferences</h2>
-            <button>Light-Mode</button>
-            <button>Dark-Mode</button>
+            <!-- Must give author credit with the a tags below -->
+            <img class="day cursor-pointer bg-slate-500 rounded" src="/Users/brandtcox/repos/project-1/weatheringo/images/20762179-562D-4163-A5FD-29E5CCE98825.png" alt="day"/>
+            <!--<a href="https://www.flaticon.com/free-icons/light" title="light icons">Light icons created by Freepik - Flaticon</a>-->
+            <img class="night cursor-pointer" src="/Users/brandtcox/repos/project-1/weatheringo/images/08040D77-1C76-4886-B203-38F835860C81.png" alt="night"/>
+            <!--<a href="https://www.flaticon.com/free-icons/mode" title="mode icons">Mode icons created by adriansyah - Flaticon</a>-->
+            <!--<button>Light-Mode</button>
+            <button>Dark-Mode</button>-->
             <button>Genre</button>
     </section>
     <section id="current-msc">
@@ -41,6 +46,7 @@
     <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
     integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
     crossorigin=""></script>  
+    <script src="https://cdn.tailwindcss.com"></script>
     <script src="script.js"></script> 
 </main>
 <footer></footer>
