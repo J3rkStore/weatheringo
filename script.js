@@ -173,8 +173,8 @@ map.on("click", onMapClick);
 
 
 // Icons
-var lightMode = document.querySelector(".day");
-var darkMode = document.querySelector(".night");
+var dayIcon = document.querySelector(".day");
+var nightIcon = document.querySelector(".night");
 
 // Theme Vars 
 var userTheme = localStorage.getItem("theme");
@@ -182,24 +182,33 @@ var systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
 // Map breaks when I use "function" below instead of const
 // Icon Toggling ---- might not need idk
-const iconToggle = () => {
+function iconToggle() {
   dayIcon.classList.toggle("display-none");
   nightIcon.classList.toggle("display-none");
-};
+}
+//const iconToggle = () => {};
+
 
 // Initial Theme Check
-const themeCheck = () => {
-  if (userTheme === "dark" (!userTheme && systemTheme)) {
+//const themeCheck = () => {};
+  
+
+
+function themeCheck() {
+  if (userTheme === "dark") {
     document.documentElement.classList.add("dark");
     nightIcon.classList.add("display-none");
     return;
   }
   dayIcon.classList.add("display-none");
-};
+}
+
 
 // Manual Theme Switch 
-const themeSwitch = () => {
-  if (document.documentElement.classList.contains("dark")) {
+//const themeSwitch = () => {};
+
+function themeSwitch() {
+   if (document.documentElement.classList.contains("dark")) {
     document.documentElement.classList.remove("dark");
     localStorage.setItem("theme", "light");
     iconToggle();
@@ -208,16 +217,12 @@ const themeSwitch = () => {
   document.documentElement.classList.add("dark");
   localStorage.setItem("theme", "dark");
   iconToggle();
-};
+}
 
 // Call theme switch by clicking the icons/images
-dayIcon.addEventListener("click", () => {
-  themeSwitch();
-});
+document.getElementById("day").addEventListener("click", themeSwitch);
 
-nightIcon.addEventListener("click", () => {
-  themeSwitch();
-});
+document.getElementById("night").addEventListener("click", themeSwitch);
 
 // Calls the theme check when page is loaded
 themeCheck();
