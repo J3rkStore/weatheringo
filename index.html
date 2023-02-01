@@ -1,31 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SkyJam</title>
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
     integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
     crossorigin=""/>
-    <link href="/dist/output.css" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@1.*/css/pico.min.css">
+
 </head>
-<body>
-    <header>
+<body style="text-align:center">
+    <header style="background-image:url(images/light-mode.jpeg); background-size: cover; background-position: center;">
         <h1>SkyJam</h1>
     </header>
     <main>
-    <section id="preference">
+    <section style="padding-bottom:125px" class="container" id="preference">
         <div id="preference-bar"></div>
             <h2>Preferences</h2>
-            <button>Light-Mode</button>
-            <button>Dark-Mode</button>
-            <button>Genre</button>
+            <a href="#" role="button">Light Mode</a>
+            <a href="#" role="button">Dark Mode</a>
+            <a href="#" role="button">Genre</a>
     </section>
-    <section id="current-msc">
+    <section class="container" id="current-msc">
         <h2>How it Works:</h2>
         <h2>Click on the map once to start your search.</h2>
         <h3>Afterwards you can click a location to get real time weather data and a music playlist to fit the weather mood.</h3>
@@ -36,7 +35,9 @@
     <section id="weather">
         <h2>Weather Data</h2>
         <h3>Click once to initialize the map!</h3>
-        <div id="map"></div>
+        <div style="background-image:url( https://images.unsplash.com/photo-1513728731559-6bf2c0c931f9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8ZGFyayUyMGNsb3VkfGVufDB8fDB8fA%3D%3D&w=1000&q=80); background-size:cover; background-repeat:no-repeat; padding-bottom:4.773rem; padding-top:4.773rem;">
+            <div style="width:700px;height:700px; padding: 10rem;" class="container" id="map"></div>
+        </div>
     </section>
     <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
     integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
@@ -47,3 +48,4 @@
 
 </body>
 </html>
+
