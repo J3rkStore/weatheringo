@@ -4,6 +4,7 @@ var osm = L.tileLayer("https://tile.openstreetmap.org/10/40.75/-111.png", {
   attribution: "© OpenStreetMap",
 });
 
+
 var map = L.map("map").setView([40.75, -111], 7);
 
 //declares the initial map
@@ -43,11 +44,14 @@ var overlayMaps = {
 var layerControl = L.control.layers(overlayMaps).addTo(map);
 
 // dipslays the base layer of the weather map
+setTimeout(() => {
+  
+
 L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
   maxZoom: 19,
   attribution:
     '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-}).addTo(map);
+}).addTo(map);}, 500);
 // don't add anything above line 46 - map will not work. 
 var popup = L.popup();
 //openWeatherMap API key
@@ -178,16 +182,8 @@ var nightIcon = document.querySelector(".night");
 
 // Theme Vars 
 var userTheme = localStorage.getItem("theme");
-var systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
-
 // Map breaks when I use "function" below instead of const
-// Icon Toggling ---- might not need idk
-//const iconToggle = () => {};
-
-
 // Initial Theme Check
-//const themeCheck = () => {};
-  
 var darkmode = false;
 
 function themeCheck() {
@@ -202,11 +198,8 @@ function themeCheck() {
   }
 
 }
-
-
 // Manual Theme Switch 
 //const themeSwitch = () => {};
-
 function themeSwitchDark() {
   localStorage.setItem('theme', 'dark')
  darkmode = true;
@@ -216,7 +209,6 @@ function themeSwitchDark() {
  }
  
 }
-
 function themeSwitchLight() {
   localStorage.setItem("theme", "light")
  darkmode = false;
@@ -225,7 +217,6 @@ function themeSwitchLight() {
     document.getElementById("main").style.backgroundColor="white";
   }
 }
-
 // Call theme switch by clicking the icons/images
 document.getElementById("day").addEventListener("click", themeSwitchLight);
 
