@@ -43,6 +43,9 @@ GitHub
 - magjoker
 - MrBrandtCox
 
+Photo used in PicoCSS version of the site by Tobias Bjørkli: 
+https://www.pexels.com/photo/aurora-borealis-and-sun-visible-in-sky-of-northern-norway-11180711/
+
 ## Instalation
 
 N/A
