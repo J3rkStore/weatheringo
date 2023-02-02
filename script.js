@@ -182,47 +182,54 @@ var systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
 // Map breaks when I use "function" below instead of const
 // Icon Toggling ---- might not need idk
-function iconToggle() {
-  dayIcon.classList.toggle("display-none");
-  nightIcon.classList.toggle("display-none");
-}
 //const iconToggle = () => {};
 
 
 // Initial Theme Check
 //const themeCheck = () => {};
   
-
+var darkmode = false;
 
 function themeCheck() {
   if (userTheme === "dark") {
-    document.documentElement.classList.add("dark");
-    nightIcon.classList.add("display-none");
+    themeSwitchDark();
+    darkmode = true;
+    return;
+  }else {
+    themeSwitchLight();
+    darkmode = false;
     return;
   }
-  dayIcon.classList.add("display-none");
+
 }
 
 
 // Manual Theme Switch 
 //const themeSwitch = () => {};
 
-function themeSwitch() {
-   if (document.documentElement.classList.contains("dark")) {
-    document.documentElement.classList.remove("dark");
-    localStorage.setItem("theme", "light");
-    iconToggle();
-    return;
+function themeSwitchDark() {
+  localStorage.setItem('theme', 'dark')
+ darkmode = true;
+
+ if (darkmode) {
+  document.getElementById("main").style.backgroundColor="black";
+ }
+ 
+}
+
+function themeSwitchLight() {
+  localStorage.setItem("theme", "light")
+ darkmode = false;
+
+  if (darkmode == false) {
+    document.getElementById("main").style.backgroundColor="white";
   }
-  document.documentElement.classList.add("dark");
-  localStorage.setItem("theme", "dark");
-  iconToggle();
 }
 
 // Call theme switch by clicking the icons/images
-document.getElementById("day").addEventListener("click", themeSwitch);
+document.getElementById("day").addEventListener("click", themeSwitchLight);
 
-document.getElementById("night").addEventListener("click", themeSwitch);
+document.getElementById("night").addEventListener("click", themeSwitchDark);
 
 // Calls the theme check when page is loaded
 themeCheck();
